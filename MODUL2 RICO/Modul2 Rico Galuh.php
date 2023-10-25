@@ -5,8 +5,8 @@
 // silakan taruh code kalian di bawah
 
 
-$tinggi_badan = isset($_POST['tinggi_badan'])?$_POST['tinggi_badan']:"";
-$berat_badan = isset($_POST['berat_badan'])?$_POST['berat_badan']:"";
+$tinggi_badan = isset($_POST['tinggi_badan']) ? $_POST['tinggi_badan'] : "";
+$berat_badan = isset($_POST['berat_badan']) ? $_POST['berat_badan'] : "";
 
 
 // **********************  1  ************************** 
@@ -19,35 +19,20 @@ $berat_badan = isset($_POST['berat_badan'])?$_POST['berat_badan']:"";
 
 
 if (empty($tinggi_badan) || empty($berat_badan)) {
-    $error_message = "Tinggi badan dan berat badan tidak boleh kosong";} 
-
-
-
-// **********************  2  ************************** 
-
-
-// **********************  3  ************************** 
-// ========== buatkanlah perkondisian di mana Jika kesalahan Error-nya "empty", 
-// masukkan perhitungan BMI sesuai dengan rumus yang tertera pada jurnal
-// silakan taruh code kalian di bawah
-
-
-    {
-        $meter = $tinggi_badan / 100;
-        $bmi = $berat_badan / ($meter * $meter);
-        if ($bmi <= 18.4) {
-            $status = "Dibawah Rata-Rata (Underweight)";
-        } elseif ($bmi >= 18.5 && $bmi <= 24.9) {
-            $status = "Normal";
-        } elseif ($bmi >= 25.0 && $bmi <= 39.9) {
-            $status = "Diatas Rata-Rata (Overweight)";
-        } else {
-            $status = "Kategori Obesitas (Obese)";
-        }
-        }
-
-
-// **********************  3  ************************** 
+    $error_message = "Tinggi badan dan berat badan tidak boleh kosong";
+} else {
+    $meter = $tinggi_badan / 100;
+    $bmi = $berat_badan / ($meter * $meter);
+    if ($bmi <= 18.4) {
+        $status = "Dibawah Rata-Rata (Underweight)";
+    } elseif ($bmi >= 18.5 && $bmi <= 24.9) {
+        $status = "Normal";
+    } elseif ($bmi >= 25.0 && $bmi <= 39.9) {
+        $status = "Diatas Rata-Rata (Overweight)";
+    } else {
+        $status = "Kategori Obesitas (Obese)";
+    }
+}
 
 
 
@@ -87,14 +72,14 @@ if (empty($tinggi_badan) || empty($berat_badan)) {
                     <!--  **********************  4  **************************     -->
                     <!-- Hasilnya perhitungan BMI taruh di sini yaaa!! 😊 -->
                     <!-- silakan taruh code kalian di bawah -->
-                    <?php 
+                    <?php
                     if (isset($bmi)) {
                         echo number_format($bmi);
                         echo $status;
                     }
-                    
+
                     ?>
-                    
+
                     <!--  **********************  4  **************************     -->
 
 
@@ -103,10 +88,10 @@ if (empty($tinggi_badan) || empty($berat_badan)) {
                     <!-- Hasil pesan error nya taruh di sini yaaa!! 😊  -->
                     <!-- silakan taruh code kalian di bawah -->
                     <?php
-                    if (!empty($error_message)){
+                    if (!empty($error_message)) {
                         echo ($error_message);
                     }
-                    
+
                     ?>
                     <!--  **********************  5  **************************     -->
 
@@ -116,7 +101,8 @@ if (empty($tinggi_badan) || empty($berat_badan)) {
         </div>
         <div class="col-md-4"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
